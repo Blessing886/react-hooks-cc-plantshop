@@ -15,7 +15,11 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <PlantPage plants={plants} addNewPlant={addNewPlant} />
+      <PlantPage
+      plants={plants}
+      addNewPlant={addNewPlant}
+      onSell={onSell}
+      />
     </div>
   );
 
@@ -30,6 +34,10 @@ function App() {
     })
     .then(response => response.json())
     .then(json => setPlants([...plants, json]));
+  }
+
+  function onSell(plant) {
+    setPlants(plants.map(p => p.id !== plant.id ? p : { ...p, sold: true }));
   }
 }
 
