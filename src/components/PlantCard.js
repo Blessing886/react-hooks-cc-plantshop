@@ -1,6 +1,6 @@
 import React from "react";
 
-function PlantCard({plant, onSell}) {
+function PlantCard({plant, onSell, deletePlant}) {
   return (
     <li className="card" data-testid="plant-item">
       <img src={plant.image} alt={plant.name} />
@@ -11,6 +11,7 @@ function PlantCard({plant, onSell}) {
       ) : (
         <button>Out of Stock</button>
       )}
+      <button onClick={() => deletePlant(plant.id)}>Delete</button>
     </li>
   );
 }

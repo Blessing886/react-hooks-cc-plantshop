@@ -19,6 +19,7 @@ function App() {
       plants={plants}
       addNewPlant={addNewPlant}
       onSell={onSell}
+      deletePlant={deletePlant}
       />
     </div>
   );
@@ -38,6 +39,15 @@ function App() {
 
   function onSell(plant) {
     setPlants(plants.map(p => p.id !== plant.id ? p : { ...p, sold: true }));
+  }
+
+  function deletePlant(plantId) {
+    fetch(`${PlantAPI}/${plantId}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      setPlants(plants.filter(plant => plant.id !== plantId));
+    });
   }
 }
 
