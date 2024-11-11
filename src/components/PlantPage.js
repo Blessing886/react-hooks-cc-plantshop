@@ -5,12 +5,14 @@ import Search from "./Search";
 
 function PlantPage({plants, addNewPlant, onSell, deletePlant}) {
   const [searchPlant, setSearchPlant] = useState('')
-
+  const filteredPlants = plants.filter(plant =>
+    plant.name.toLowerCase().includes(searchPlant.toLowerCase())
+  );
   return (
     <main>
       <NewPlantForm addNewPlant={addNewPlant} />
       <Search setSearchPlant={setSearchPlant} />
-      <PlantList plants={plants.filter(plant => plant.name.toLowerCase().startsWith(searchPlant.toLowerCase()))}
+      <PlantList plants={filteredPlants} //{plants.filter(plant => plant.name.toLowerCase().startsWith(searchPlant.toLowerCase()))}
       onSell={onSell}
       deletePlant={deletePlant} />
     </main>
