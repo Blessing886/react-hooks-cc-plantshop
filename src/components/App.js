@@ -28,8 +28,8 @@ function App() {
     fetch(PlantAPI, {
       method: 'POST',
       headers: {
-        Accepts: 'Application/json' ,
-        'Content-type': 'Application/json',
+        //'Accepts': 'Application/JSON' ,
+        'Content-Type': 'Application/JSON',
       },
       body: JSON.stringify(plant),
     })

@@ -5,6 +5,7 @@ import Search from "./Search";
 
 function PlantPage({plants, addNewPlant, onSell, deletePlant}) {
   const [searchPlant, setSearchPlant] = useState('')
+
   return (
     <main>
       <NewPlantForm addNewPlant={addNewPlant} />
